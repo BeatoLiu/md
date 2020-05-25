@@ -35,11 +35,15 @@ let getData1:ConfigFn = function(value){
     return value
 }
 getData1<string>('11')
+getData1<number>(11)
 
 // 第2种形式
 interface ConfigFn1<T>{
     (value: T): T
 }
+// myGetData在定义时已规定只能传入string类型的参数
 let myGetData:ConfigFn1<string> = getData1 
 myGetData('123')
+// myGetData(123) // error
+
 
