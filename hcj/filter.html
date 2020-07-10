@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            /* display: block; */
+            /* margin: auto; */
+            height: 200px;
+            /* grayscale 设置灰度，1是百分百，0是百分0 */
+            
+            transition: 2s;
+        }
+        /* img:hover{
+            filter: none;
+        } */
+        .img1{
+            -webkit-filter: grayscale(1);
+        }
+        .img2{
+            filter: brightness(2);
+        }
+        .img3{
+            filter: sepia(1);
+        }
+        .img4{
+            filter: blur(5px);
+        }
+        .img5{
+            filter: blur(10px) brightness(20) grayscale(1);
+            transition: linear 15s;
+        }
+        .img5:hover{
+            filter: blur(0px) brightness(1) grayscale(1);
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <img class="img1" src="./img/main_7_1.png" alt="灰度" title="灰度">
+        <img class="img2" src="./img/main_7_1.png" alt="" title="亮度">
+        <img class="img3" src="./img/main_7_1.png" alt="" title="褐度">
+        <img class="img4" src="./img/main_7_1.png" alt="" title="模糊度">
+        
+    </div>
+    <div>
+        <img class="img5" src="./img/main_7_1.png" alt="" title="多种滤镜共同作用">
+    </div>
+</body>
+</html>

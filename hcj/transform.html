@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .div1{
+            height: 100px;
+            width: 100px;
+            background-color: skyblue;
+
+            /* transform: translate(300px, 400px); */
+            transform: rotateX(45deg)
+        }
+        body{
+            perspective: 500px;
+        }
+        #red:checked~div{
+            background-color: red;
+        }
+        #green:checked~div{
+            background-color: yellowgreen;
+        }
+    </style>
+</head>
+<body>
+    
+    <input type="radio" name="gender" id="red" value="M" hidden>
+    <input type="radio" name="gender" id="green" value="F" hidden>
+    <label for="red">red</label>
+    <label for="green">green</label>
+    <div class="div1"></div>
+</body>
+<script>
+    // this,定义时决定
+    var st = {
+        name: 'st',
+        like: () => {
+            console.log(this) // window
+            console.log(this.name) // st
+        }
+    }
+    var te = {
+        name: 'te',
+        like: function(){
+            console.log(this) // te
+            console.log(this.name) // te
+        }
+    }
+</script>
+</html>

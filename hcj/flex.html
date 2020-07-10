@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1">
+    
+    <title>Document</title>
+    <style>
+        .parent{
+            width: 800px;
+            height: 800px;
+            border: 1px solid;
+            margin: auto;
+            display: flex;
+            justify-content: flex-start;
+            align-content: center;
+            align-items:flex-start;
+            flex-wrap: wrap;
+            
+        }
+        .child{
+            width: 100px;
+            height: 200px;
+            /* flex: 1; */
+            /* flex-grow: 1; */
+            /* flex-shrink: 1; */
+            /* flex-basis: 0; */
+            
+        }
+        .child:nth-child(3n + 1){
+            background-color: aqua;
+            
+        }
+        .child:nth-child(3n + 2){
+            background-color: deeppink;
+            /* flex:1; */
+            flex-grow: 1;
+            /* width: 300px; */
+            /* order: 5; */
+        }
+        .child:nth-child(3n + 3){
+            background-color: deepskyblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="parent">
+        <div class="child">1</div>
+        <div class="child">2</div>
+        <div class="child"><p>333333333333333333333333</p></div>
+        <!-- <div class="child">1</div>
+        <div class="child">2</div>
+        <div class="child">3</div> -->
+    </div>
+</body>
+</html>
