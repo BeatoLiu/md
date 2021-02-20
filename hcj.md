@@ -88,6 +88,18 @@
             }
         }
         ```
+
++ Ajax
+    ```
+        // 1、创建xhr对象
+        var xhr = new XMLHttpRequest()
+        // 2、设置请求方式和路径
+        xhr.open('POST', url)
+        // 3、发送数据
+        xhr.send(params)
+    ```
+
+
 ## DOM
 + 获取元素
     - ``` document.getElementsByTagName('div') // 得到一个类数组 ```
@@ -101,3 +113,49 @@
     - 子结点 firstChild、firstElementChild(标签)、lastChild、lastElementChild(标签)
     - 所有子节点 childNodes、children(标签)
 
++ 节点的创建追加插入删除
+    ```
+    var img = document.createElement('img') // 创建img元素
+    var body = document.querySeletor('body')
+    var d3 = document.querySeletor('.d3')
+
+    body.appendChild(img) // 在body中追加img
+    body.insertBefore(img,d3) // 在d3前面插入img
+    body.removeChild(d3) // 删除d3
+
+    // 如果将同一个元素插入到多个地方，则只有最后一次操作有效，若想都生效，可用cloneNode方法复制该元素
+    var img2 = img.cloneNode() // 复制img元素, cloneNode(true)  如果传入参数，则表示子节点也会复制
+    ```
++ 获取元素内容
+    - innerHtml 取出标签内所有内容
+    - innerText 取出所有文本 不含标签
+    - outerHtml 取出所有内容（含元素本身）
++ 操作元素的类
+    ```
+    var d1 = document.getElementById('d1')
+    d1.className='redBg bigFont' // 赋值
+    d1.classList.add('shadow') // 追加
+    d1.classList.replace('bigFont', 'smallFont') // 替换
+    d1.classList.remove('redBg') // 移除
+    ```
+
++ offset
+    - 1、offsetWidth 和 offsetHeight
+        用于检测盒子自身的“宽高+padding+border”，不包括margin
+        - offsetWidth = width + padding + border
+        - offsetHeight = height + padding + border
+    - 2、offsetLeft 和 offsetTop （只读，不可写）
+        盒子到有定位的父元素的距离，如果都没有定位，则表示到根元素的距离
+        注：如果有定位的祖先元素是body,则会加上body的边框（如果body设置了边框的话）
+    - 3、offsetParent 最近的有定位的祖先元素
+
++ scroll
+    - 1、scrollWidth 和 scrollHeight
+        获取盒子内部的宽高，不包括border和margin
+        - scrollWidth = width + padding
+        - scrollHeight = height + padding
+        注：scrollHeight，如果内容超出了盒子，则高度为内容的高度
+
+    - 2、scrollTo() 和 scrollBy()
+     - scrollTo(0, 1000) 滚动条向下滚动1000
+     - scrollBy(0, 1000) 滚动条在现有的位置上再向下滚动1000

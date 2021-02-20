@@ -1,3 +1,9 @@
+## 启动简易本地服务
+yarn global add serve
+serve ./dist
+
+
+
 ## node特点
 + 事件驱动
 + 非阻塞IO模型（异步）
