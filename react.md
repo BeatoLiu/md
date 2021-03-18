@@ -57,3 +57,7 @@
 + redux
     - 安装
     ``` yarn add redux
+
+
++ jsx
+    - js表达式需要用{}括起 如：arr.map()、 arr; 语句(代码)，如if(){}、for()不能用{}括起来,不能写在jsx中

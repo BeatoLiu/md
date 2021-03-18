@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .magnifier{
+            width: 800px;
+            height: 200px;
+            display: flex;
+            margin: 0 auto;
+        }
+        .left{
+            height: 200px;
+            width: 400px;
+            background-image: url('./img/main_7_1.png');
+            background-size: 100%;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+        .zhezhao{
+            background-color: rgba(255, 255, 0, 0.7);
+            width: 200px;
+            height: 100px;
+            display: none;
+            /* position: absolute;
+            left: 10px;
+            top: 0; */
+        }
+        .right{
+            height: 200px;
+            width: 400px;
+            background-image: url('./img/main_7_1.png');
+            background-size: 800px 400px;
+            /* background-position: 400px 200px; */
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="magnifier">
+        <div class="left">
+            <div class="zhezhao"></div>
+        </div>
+        <div class="right"></div>
+    </div>
+    <script>
+        var left = document.querySelector('.left')
+        var zhezhao = document.querySelector('.zhezhao')
+        var right = document.querySelector('.right')
+        left.onmouseenter = function(e){
+            // console.log(e.pageX,e.pageY)
+            // console.log([left])
+            zhezhao.style.display = 'block'
+        }
+        var x
+        var y
+        left.onmousemove = function(e){
+            x = e.pageX - left.offsetLeft - 100
+            y = e.pageY - left.offsetTop - 50
+            if(x < 0) x = 0
+            if(y < 0) y = 0
+            if(x > 200) x = 200
+            if(y > 100) y = 100
+            // console.log([left])
+            // console.log(x, y)
+            zhezhao.style.position = 'absolute'
+            zhezhao.style.left = x + 'px'
+            zhezhao.style.top = y + 'px'
+
+            right.style.display = 'block'
+            right.style.backgroundPosition = (-x*2) + 'px ' + (-y*2) + 'px'
+
+        }
+        left.onmouseleave = function(e){
+            zhezhao.style.display = 'none'
+            right.style.display = 'none'
+        }
+    </script>
+</body>
+</html>

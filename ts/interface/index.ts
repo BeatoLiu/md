@@ -73,3 +73,15 @@ class Dog implements Animal{
 
 const dog = new Dog('Tom')
 dog.eat('rice')
+
+// keyof 索引类型查询操作符
+interface Person{
+    name: string,
+    age: number,
+    gender: 'm' | 'f'
+}
+type PersonKey = keyof Person
+// 可以将key限定在person的属性中
+function getValue(val: Person, key: PersonKey): any{
+    return val[key]
+}
